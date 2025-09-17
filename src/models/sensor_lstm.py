@@ -15,4 +15,5 @@ class SensorLSTM(nn.Module):
         x = x[:, -1, :]         # take last time-step
         x = self.drop(x)
         x = self.fc(x)
-        return x                 # logits
+        return x               
+
