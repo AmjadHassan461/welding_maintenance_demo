@@ -11,10 +11,10 @@ The system includes both a **CLI pipeline** and a **Streamlit web UI** for opera
 | AC.NO     | Name                     | Role            | Contributions |
 |-----------|--------------------------|-----------------|---------------|
 | 202274070 | Amjad Hassan             | Lead Developer  | Project architecture, pipeline integration, Streamlit UI |
-| 202274031 | Ali Al-Quladi            | Vision Engineer | YOLOv5 training, seam detection integration |
-| 202274093 | Hashim Nabeel Al-Motwakel| Sensor Engineer | Sensor dataset simulation, RF/LSTM models |
-| 202274089 | Yousef Al-Noaimi         | Data Analyst    | Data preprocessing, EDA, visualization |
-| 202274037 | Riyadh Al-Kibsi          | ML Engineer     | Model optimization, testing, deployment setup |
+| 202274031 | Ali Al-Quladi            | Vision Training | YOLOv5 training, seam detection integration |
+| 202274093 | Hashim Nabeel Al-Motwakel| Sensor Training | Sensor dataset simulation, RF/LSTM models |
+| 202274089 | Yousef Al-Noaimi         | Data Analysis  | Data preprocessing, EDA, visualization |
+| 202274037 | Riyadh Al-Kibsi          | ML Models   | Model optimization, testing, deployment setup |
 
 ---
 
@@ -27,7 +27,7 @@ The system includes both a **CLI pipeline** and a **Streamlit web UI** for opera
 ### Steps
 ```bash
 # Clone repository
-git clone <repository-url>
+git clone <https://github.com/AmjadHassan461/welding_maintenance_demo/tree/master3.0>
 cd welding_maintenance_demo
 
 # Install dependencies
@@ -50,4 +50,5 @@ uv run python main.py predict-vision --image data/test.jpg
 uv run python main.py pipeline --model rf \
   --sensor-csv data/welding_dataset.csv \
   --image data/test.jpg
+
 
