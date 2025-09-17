@@ -1,0 +1,52 @@
+[project]
+name = "welding-maintenance-demo"
+version = "0.3.0"
+description = "Predictive Maintenance for Robotic Welding Arm (sensor RF/LSTM + YOLOv5 vision + Streamlit UI)"
+readme = "README.md"
+requires-python = ">=3.12"
+
+# Core runtime deps
+dependencies = [
+    "numpy>=1.26.0",
+    "pandas>=2.2.0",
+    "scikit-learn>=1.4.0",
+    "matplotlib>=3.8.0",
+    "seaborn>=0.13.0",
+    "streamlit>=1.34.0",
+    "pyyaml>=6.0.0",
+    "tqdm>=4.66.0",
+    "requests>=2.31.0",
+    "pillow>=10.0.0",
+    # PyTorch: choose CUDA/CPU builds based on your machine.
+    # On Linux/WSL CPU-only:
+    "torch>=2.2.0",
+    "torchvision>=0.17.0",
+    # If you target CUDA wheels, install via index URL or conda as needed.
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4.0",
+    "black>=24.0.0",
+    "ruff>=0.5.0",
+    "mypy>=1.8.0",
+    "ipykernel>=6.29.0",
+    "jupyter>=1.0.0",
+]
+
+[tool.uv]
+# Ensures lockfile usage and reproducibility
+managed = true
+
+[tool.black]
+line-length = 100
+target-version = ["py312"]
+
+[tool.ruff]
+line-length = 100
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[project.scripts]
+weld-cli = "main:cli"

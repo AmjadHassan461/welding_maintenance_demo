@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pkl
+*.pth
+
+# Virtual environments
+.venv/
+env/
+venv/
+
+# Data
+data/*
+!data/README.md
+
+# Models
+models/*
+!models/README.md
+
+# Streamlit cache
+.streamlit/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# UV lock
+uv.lock

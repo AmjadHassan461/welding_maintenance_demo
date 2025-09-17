@@ -1,0 +1,14 @@
+train: /mnt/c/Users/amjad/OneDrive/Desktop/Predictive Maintenance For Robotic Welding Arm/welding_maintenance_demo V2.0/Datasets/CV Seam Detection Dataset/train/images
+val: /mnt/c/Users/amjad/OneDrive/Desktop/Predictive Maintenance For Robotic Welding Arm/welding_maintenance_demo V2.0/Datasets/CV Seam Detection Dataset/valid/images
+test: /mnt/c/Users/amjad/OneDrive/Desktop/Predictive Maintenance For Robotic Welding Arm/welding_maintenance_demo V2.0/Datasets/CV Seam Detection Dataset/test/images
+
+nc: 1
+names: ['seam']
+
+
+roboflow:
+  workspace: seam-2fhuj
+  project: weld-seam-detection-7mhq4
+  version: 2
+  license: CC BY 4.0
+  url: https://universe.roboflow.com/seam-2fhuj/weld-seam-detection-7mhq4/dataset/2

@@ -1,0 +1,13 @@
+welding_maintenance_demo/
+├── README.md
+├── pyproject.toml
+├── main.py                 # CLI entry point
+├── app.py                  # Streamlit web UI
+├── src/
+│   ├── data/               # Data processing
+│   ├── models/             # RF, LSTM, YOLO wrappers
+│   └── utils/              # helpers (paths, logging)
+├── notebooks/              # Jupyter notebooks for EDA
+├── data/                   # Datasets (simulated + CV)
+├── models/                 # Trained weights
+└── docs/                   # Documentation + outputs

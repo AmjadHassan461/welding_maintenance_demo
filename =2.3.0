@@ -1,0 +1,26 @@
+Defaulting to user installation because normal site-packages is not writeable
+Collecting blosc2
+  Downloading blosc2-3.8.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (7.1 kB)
+Requirement already satisfied: numpy>=1.26 in /home/amjad/.local/lib/python3.12/site-packages (from blosc2) (1.26.4)
+Collecting ndindex (from blosc2)
+  Downloading ndindex-1.10.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (3.6 kB)
+Collecting msgpack (from blosc2)
+  Downloading msgpack-1.1.1-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (8.4 kB)
+Requirement already satisfied: platformdirs in /usr/lib/python3/dist-packages (from blosc2) (4.2.0)
+Collecting numexpr>=2.12.1 (from blosc2)
+  Downloading numexpr-2.12.1-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (9.0 kB)
+Requirement already satisfied: py-cpuinfo in /usr/lib/python3/dist-packages (from blosc2) (9.0.0)
+Requirement already satisfied: requests in /home/amjad/.local/lib/python3.12/site-packages (from blosc2) (2.32.5)
+Requirement already satisfied: charset_normalizer<4,>=2 in /home/amjad/.local/lib/python3.12/site-packages (from requests->blosc2) (3.4.3)
+Requirement already satisfied: idna<4,>=2.5 in /usr/lib/python3/dist-packages (from requests->blosc2) (3.6)
+Requirement already satisfied: urllib3<3,>=1.21.1 in /usr/lib/python3/dist-packages (from requests->blosc2) (2.0.7)
+Requirement already satisfied: certifi>=2017.4.17 in /usr/lib/python3/dist-packages (from requests->blosc2) (2023.11.17)
+Downloading blosc2-3.8.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (4.5 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.5/4.5 MB 223.7 kB/s  0:00:20
+Downloading numexpr-2.12.1-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (413 kB)
+Downloading msgpack-1.1.1-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (426 kB)
+Downloading ndindex-1.10.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (546 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 546.2/546.2 kB 570.0 kB/s  0:00:00
+Installing collected packages: numexpr, ndindex, msgpack, blosc2
+
+Successfully installed blosc2-3.8.0 msgpack-1.1.1 ndindex-1.10.0 numexpr-2.12.1
