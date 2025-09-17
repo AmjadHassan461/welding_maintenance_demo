@@ -1,4 +1,3 @@
-# app.py
 import streamlit as st
 from pathlib import Path
 import tempfile
@@ -6,7 +5,7 @@ import shutil
 import time
 import pandas as pd
 
-# Use your existing backend functions
+# Backend Functions
 from main import predict_sensor, predict_vision
 from src.utils.paths import normalize_path  # kept for completeness even if not used directly
 
@@ -284,7 +283,6 @@ with tab_vision:
                 seams = predict_vision(args)
                 time.sleep(0.05)
 
-            # Verdict here uses a neutral sensor baseline
             _display_verdict(sensor_pred=0, sensor_conf=1.0, seams=seams)
 
             # Show annotated image if present
