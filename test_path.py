@@ -18,7 +18,7 @@ def normalize_path(p: str):
     return Path(p).expanduser().resolve()
 
 
-# Your actual Windows path
+# Actual Windows Path
 win_path = r"C:\Users\amjad\OneDrive\Desktop\Predictive Maintenance For Robotic Welding Arm\welding_maintenance_demo V2.0\Datasets\CV Seam Detection Dataset\test\images\IMG_20241119_152432_1_jpg.rf.7542ebfbd5cc31c6cf9e8f3ab24a36c7.jpg"
 
 norm = normalize_path(win_path)
