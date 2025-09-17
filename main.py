@@ -70,16 +70,16 @@ def predict_vision(args):
         print(f"Trained weights not found at {weights_path}. Train vision first.")
         return 0
 
-    # Use absolute project path so YOLO writes outputs where we expect them
+    # Project Paths 
     project_dir = Path("docs").resolve()
     out_dir = project_dir / "vision_preds"
     labels_dir = out_dir / "labels"
 
-    # CHANGED: clear outputs only when requested
+    # clear outputs only when requested
     if getattr(args, "clear_outputs", False) and out_dir.exists():
         shutil.rmtree(out_dir)
 
-    # CHANGED: pick up thresholds from args with defaults
+    # pick up thresholds from args with defaults
     conf_str = f"{getattr(args, 'conf', 0.25):.6f}"
     iou_str = f"{getattr(args, 'iou', 0.45):.6f}"
 
@@ -106,7 +106,7 @@ def predict_vision(args):
 
     print(f"[OK] Predictions expected under {out_dir}")
 
-    # Count seams from YOLO label files (be robust: search recursively)
+    # Count seams from YOLO label files
     seams_detected = 0
     if labels_dir.exists():
         files = list(labels_dir.glob("*.txt"))
@@ -117,7 +117,6 @@ def predict_vision(args):
                 seams_detected += lines
                 print(f"[Vision] {f.name}: {lines} detections")
     else:
-        # Try to find any labels file created elsewhere under the project dir (fallback)
         files = list(project_dir.rglob("labels/*.txt"))
         if files:
             print(f"[Vision] Found labels elsewhere: {len(files)} files")
@@ -160,15 +159,11 @@ def train_sensor(args):
             Xw, yw_np, test_size=0.2, random_state=RANDOM_STATE, stratify=yw_np
         )
 
-        # Ensure shapes and dtypes are correct for PyTorch/CrossEntropyLoss
         X_train = torch.tensor(X_train, dtype=torch.float32).to(DEVICE)
         X_test = torch.tensor(X_test, dtype=torch.float32).to(DEVICE)
-
-        # CrossEntropyLoss expects target of shape (N,) with dtype long
         y_train = torch.tensor(y_train, dtype=torch.long).squeeze().to(DEVICE)
         y_test = torch.tensor(y_test, dtype=torch.long).squeeze().to(DEVICE)
 
-        # If squeeze removed too much dimensions, ensure 1D
         if y_train.dim() > 1:
             y_train = y_train.view(-1)
         if y_test.dim() > 1:
@@ -217,7 +212,6 @@ def predict_sensor(args):
         print("[Sensor] Forced fail mode enabled")
         return 1, 0.95
 
-    # CHANGED: Support CSV input if provided; else fall back to existing window loader
     X_flat = None
     if getattr(args, "sensor_csv", None):
         csv_path = normalize_path(args.sensor_csv)
@@ -263,7 +257,7 @@ def predict_sensor(args):
             Xw, _ = load_sensor_windows()
             X_seq = torch.tensor(Xw[:1], dtype=torch.float32).to(DEVICE)
         else:
-            # CHANGED: reshape flat row to (batch=1, time=1, features=n)
+            # Reshape flat row to (batch=1, time=1, features=n)
             X_seq = torch.tensor(X_flat.reshape(1, 1, -1), dtype=torch.float32).to(DEVICE)
 
         model = SensorLSTM(n_features=X_seq.shape[2], n_classes=2).to(DEVICE)
@@ -324,7 +318,6 @@ def main():
     # Vision prediction
     pv = sub.add_parser("predict-vision", help="Run YOLOv5 vision inference on an image")
     pv.add_argument("--image", type=str, default=None, help="Path to image")
-    # CHANGED: add thresholds and output control
     pv.add_argument("--conf", type=float, default=0.25, help="Confidence threshold")
     pv.add_argument("--iou", type=float, default=0.45, help="IoU threshold")
     pv.add_argument("--clear-outputs", dest="clear_outputs", action="store_true", help="Clear previous YOLO outputs")
@@ -353,4 +346,5 @@ def main():
     args.func(args)
 
 if __name__ == "__main__":
+
     main()
