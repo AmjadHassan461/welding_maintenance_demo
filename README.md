@@ -50,3 +50,4 @@ uv run python main.py predict-vision --image data/test.jpg
 uv run python main.py pipeline --model rf \
   --sensor-csv data/welding_dataset.csv \
   --image data/test.jpg
+
